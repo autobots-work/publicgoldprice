@@ -397,7 +397,7 @@
       document.getElementById('setup-notice').style.display = 'block';
       return [];
     }
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&sheet=Silver`;
+    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=36921757`;
     const res  = await fetch(url);
     const text = await res.text();
     const rows = parseCSV(text);
@@ -465,7 +465,7 @@
         html += `
           <div class="today-hero">
             <div class="hero-tag">Today's Latest — ${fmtDate(group.date)}</div>
-            <div class="hero-price"><sup>p/gram</sup> ${fmtPrice(latest.price)}</div>
+            <div class="hero-price"><sup>RM/g</sup> ${fmtPrice(latest.price)}</div>
             <div class="hero-bottom">
               <span class="hero-change">${changeStr}</span>
               <span>Last recorded at ${latest.time}</span>
@@ -487,7 +487,7 @@
             <thead>
               <tr>
                 <th>Time</th>
-                <th>Price (p/gram)</th>
+                <th>Price (RM/g)</th>
                 <th style="text-align:right">Change</th>
               </tr>
             </thead>

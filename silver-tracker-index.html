@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Silver Price Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #0c0c0e;
+      --surface:  #111115;
+      --border:   #1e1e26;
+      --silver:   #c8cdd6;
+      --silver-2: #8a9099;
+      --gold:     #c9aa6e;
+      --up:       #5cba8a;
+      --down:     #d96060;
+      --flat:     #444;
+      --text:     #dde1e8;
+      --muted:    #4a4f5a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Mono', monospace;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    /* ─── HEADER ─── */
+    header {
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 2.6rem;
+      letter-spacing: -0.5px;
+      color: var(--silver);
+      line-height: 1;
+    }
+
+    .brand em {
+      font-style: italic;
+      color: var(--silver-2);
+    }
+
+    .live-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #2a3a2a;
+      background: #0f1f0f;
+      color: var(--up);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--up);
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.3; transform: scale(0.7); }
+    }
+
+    .header-meta {
+      margin-top: 1.2rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .header-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* ─── TODAY HERO ─── */
+    .today-hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeSlide 0.5s ease both;
+    }
+
+    .today-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--silver-2), transparent);
+      opacity: 0.3;
+    }
+
+    .hero-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--silver);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .hero-price sup {
+      font-size: 1.4rem;
+      color: var(--silver-2);
+      vertical-align: super;
+      font-weight: 300;
+      letter-spacing: 0;
+    }
+
+    .hero-bottom {
+      margin-top: 1rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-change {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* ─── DATE SECTIONS ─── */
+    .date-block {
+      margin-bottom: 2.5rem;
+      animation: fadeSlide 0.5s ease both;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .date-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .date-heading-text {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .date-heading-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── TABLE ─── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    thead tr {
+      background: #0f0f13;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      padding: 10px 16px;
+      text-align: left;
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    td {
+      padding: 13px 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    tr:first-child td { border-top: none; }
+
+    tr:hover td { background: rgba(255,255,255,0.015); }
+
+    .col-time  { color: var(--muted); font-size: 0.8rem; }
+    .col-price { color: var(--silver); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.5px; }
+    .col-change { text-align: right; }
+
+    .change-up   { color: var(--up);   }
+    .change-down { color: var(--down); }
+    .change-flat { color: var(--flat); }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.78rem;
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+
+    .badge-up   { background: rgba(92,186,138,0.1); color: var(--up); }
+    .badge-down { background: rgba(217, 96, 96,0.1); color: var(--down); }
+    .badge-flat { color: var(--flat); }
+
+    /* ─── FOOTER ─── */
+    #footer {
+      text-align: center;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── EMPTY / ERROR ─── */
+    .empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .setup-banner {
+      background: #1a1208;
+      border: 1px solid #3a2c10;
+      color: #c9aa6e;
+      padding: 1.2rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .setup-banner strong { display: block; margin-bottom: 4px; font-size: 0.85rem; }
+    .setup-banner code { background: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 2px; }
+
+    @media (max-width: 500px) {
+      .hero-price { font-size: 3rem; }
+      th:last-child, td:last-child { display: none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="header-top">
+      <div class="brand">Silver<br><em>Price Record</em></div>
+      <div class="live-pill"><span class="dot"></span> Live</div>
+    </div>
+    <div class="header-meta">
+      <span>⟳ <span id="next-refresh">Refreshing in 30s</span></span>
+      <span>⏱ Last updated: <span id="last-updated">—</span></span>
+    </div>
+  </header>
+
+  <div id="setup-notice" class="setup-banner" style="display:none">
+    <strong>⚙ Setup Required</strong>
+    Open this file and replace <code>YOUR_SHEET_ID</code> near the bottom of the script with your actual Google Sheet ID,
+    then make sure your sheet is shared publicly as <em>Viewer</em>.
+  </div>
+
+  <div id="content">
+    <div class="empty">Loading data…</div>
+  </div>
+
+  <div id="footer">Silver Price Tracker · Auto-refreshes every 30 seconds</div>
+
+</main>
+
+<script>
+  // ─────────────────────────────────────────────
+  // ⚙  CONFIGURE: paste your Sheet ID below
+  // ─────────────────────────────────────────────
+  const SHEET_ID   = '1nct9s5DQAzU1ql7h3p3Or8YPUZFRuYdnjawcYkKmojM';
+  const REFRESH_MS = 30_000;
+  // ─────────────────────────────────────────────
+
+  let countdown  = REFRESH_MS / 1000;
+  let timerLabel = document.getElementById('next-refresh');
+
+  setInterval(() => {
+    countdown--;
+    if (countdown <= 0) countdown = REFRESH_MS / 1000;
+    timerLabel.textContent = `Refreshing in ${countdown}s`;
+  }, 1000);
+
+  // ── Helpers ──────────────────────────────────
+  function parseGDate(val) {
+    if (!val) return null;
+    const s = String(val);
+    // Case 1: Google Date object → "Date(2026,1,24)" (month is 0-indexed)
+    const gd = s.match(/Date\((\d+),(\d+),(\d+)\)/);
+    if (gd) return new Date(+gd[1], +gd[2], +gd[3]);
+    // Case 2: Plain text dd/mm/yyyy (how your sheet stores it)
+    const dmy = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if (dmy) return new Date(+dmy[3], +dmy[2] - 1, +dmy[1]);
+    // Case 3: yyyy-mm-dd or any ISO fallback
+    const iso = new Date(s);
+    if (!isNaN(iso)) return iso;
+    return null;
+  }
+
+  function isToday(d) {
+    const n = new Date();
+    return d.getFullYear() === n.getFullYear() && d.getMonth() === n.getMonth() && d.getDate() === n.getDate();
+  }
+
+  function fmtDate(d) {
+    return d.toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+  }
+
+  function fmtPrice(p) {
+    return p.toLocaleString('en-GB', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  }
+
+  // ── CSV parser (handles quoted fields) ────────
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    return lines.slice(1).map(line => {
+      const cols = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') { inQ = !inQ; }
+        else if (ch === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
+        else { cur += ch; }
+      }
+      cols.push(cur.trim());
+      return cols;
+    });
+  }
+
+  // ── Fetch via CSV export (no CORS issues) ─────
+  async function fetchData() {
+    if (SHEET_ID === 'YOUR_SHEET_ID') {
+      document.getElementById('setup-notice').style.display = 'block';
+      return [];
+    }
+    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+    const res  = await fetch(url);
+    const text = await res.text();
+    const rows = parseCSV(text);
+
+    console.log('CSV rows sample:', rows.slice(0, 3));
+
+    return rows
+      .filter(r => r[0])
+      .map(r => ({
+        date:  parseGDate(r[0]),
+        time:  r[1] ?? '',
+        price: parseFloat(r[2]),
+      }))
+      .filter(r => r.date && !isNaN(r.price))
+      .sort((a, b) => b.date - a.date || b.time.localeCompare(a.time));
+  }
+
+  // ── Change badge ──────────────────────────────
+  function changeBadge(curr, prev) {
+    if (prev == null) return '<span class="badge badge-flat">—</span>';
+    const diff = curr - prev;
+    const pct  = ((diff / prev) * 100).toFixed(2);
+    if (diff > 0) return `<span class="badge badge-up">▲ ${fmtPrice(diff)} <small style="opacity:.7">(+${pct}%)</small></span>`;
+    if (diff < 0) return `<span class="badge badge-down">▼ ${fmtPrice(Math.abs(diff))} <small style="opacity:.7">(${pct}%)</small></span>`;
+    return '<span class="badge badge-flat">No change</span>';
+  }
+
+  // ── Group by date ─────────────────────────────
+  function groupByDate(records) {
+    const map = {};
+    records.forEach(r => {
+      const key = r.date.toDateString();
+      if (!map[key]) map[key] = { date: r.date, entries: [] };
+      map[key].entries.push(r);
+    });
+    return Object.values(map).sort((a, b) => b.date - a.date);
+  }
+
+  // ── Render ────────────────────────────────────
+  function render(records) {
+    if (!records.length) {
+      document.getElementById('content').innerHTML = '<div class="empty">No records found in your sheet yet.</div>';
+      return;
+    }
+
+    const groups = groupByDate(records);
+    let html = '';
+
+    groups.forEach((group, gi) => {
+      const today   = isToday(group.date);
+      const entries = group.entries;           // newest-first within the day
+      const latest  = entries[0];
+      const oldest  = entries[entries.length - 1];
+
+      // ── Today hero card ──
+      if (today && gi === 0) {
+        const dayChange  = entries.length > 1 ? latest.price - oldest.price : null;
+        const dayChangePct = dayChange != null ? ((dayChange / oldest.price) * 100).toFixed(2) : null;
+
+        const changeStr = dayChange == null ? '—'
+          : dayChange > 0 ? `<span class="change-up">▲ ${fmtPrice(dayChange)} (+${dayChangePct}%) today</span>`
+          : dayChange < 0 ? `<span class="change-down">▼ ${fmtPrice(Math.abs(dayChange))} (${dayChangePct}%) today</span>`
+          : '<span class="change-flat">No movement today</span>';
+
+        html += `
+          <div class="today-hero">
+            <div class="hero-tag">Today's Latest — ${fmtDate(group.date)}</div>
+            <div class="hero-price"><sup>p/oz</sup> ${fmtPrice(latest.price)}</div>
+            <div class="hero-bottom">
+              <span class="hero-change">${changeStr}</span>
+              <span>Last recorded at ${latest.time}</span>
+              <span>${entries.length} update${entries.length !== 1 ? 's' : ''} today</span>
+            </div>
+          </div>`;
+      }
+
+      // ── Date block heading ──
+      const label = today ? `Today — ${fmtDate(group.date)}` : fmtDate(group.date);
+
+      html += `
+        <div class="date-block" style="animation-delay:${gi * 0.06}s">
+          <div class="date-heading">
+            <div class="date-heading-text">${label}</div>
+            <div class="date-heading-line"></div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Price (p/oz)</th>
+                <th style="text-align:right">Change</th>
+              </tr>
+            </thead>
+            <tbody>`;
+
+      entries.forEach((entry, i) => {
+        const prev = entries[i + 1]?.price ?? null;
+        html += `
+              <tr>
+                <td class="col-time">${entry.time || '—'}</td>
+                <td class="col-price">${fmtPrice(entry.price)}</td>
+                <td class="col-change">${changeBadge(entry.price, prev)}</td>
+              </tr>`;
+      });
+
+      html += `</tbody></table></div>`;
+    });
+
+    document.getElementById('content').innerHTML = html;
+    document.getElementById('last-updated').textContent = new Date().toLocaleTimeString('en-GB');
+  }
+
+  // ── Main loop ─────────────────────────────────
+  async function refresh() {
+    countdown = REFRESH_MS / 1000;
+    try {
+      const data = await fetchData();
+      render(data);
+    } catch (e) {
+      console.error('Fetch error:', e);
+      document.getElementById('last-updated').textContent = 'Error — retrying…';
+    }
+  }
+
+  refresh();
+  setInterval(refresh, REFRESH_MS);
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- SEO -->
-  <title>Public Gold Price Today | Gold Price Public Gold Malaysia | PublicGoldPrice.com</title>
+  <title>Public Gold Price Today | Gold Price Public Gold Tracker - PublicGoldPrice.com</title>
   <meta name="description" content="Check Public Gold price today in Malaysia. Live gold price based on Public Gold official SAP 999 rates. Harga Public Gold terkini dikemaskini setiap 3 minit.">
   <meta name="keywords" content="public gold price, gold price public gold, harga public gold, public gold price today, harga emas public gold, SAP 999 gold price malaysia">
   <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://publicgoldprice.com/">
-  <meta property="og:title" content="Public Gold Price Today | Gold Price Public Gold Malaysia">
+  <meta property="og:title" content="Public Gold Price Today | Gold Price Public Gold Tracker - PublicGoldPrice.com">
   <meta property="og:description" content="Check Public Gold price today in Malaysia. Live gold price based on Public Gold official SAP 999 rates. Updated every 3 minutes.">
   <meta property="og:site_name" content="PublicGoldPrice.com">
 
@@ -238,7 +238,7 @@
 
     .hero-change {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       font-weight: 700;
     }
 
@@ -281,7 +281,7 @@
 
     .stat-val {
       font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--white);
     }
@@ -474,8 +474,8 @@
 <main>
   <div id="content"><div class="empty">Loading…</div></div>
   <div style="margin-top:3rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:1.5rem">
-    <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:0.75rem">The Gold data and prices displayed on this website are based on the latest official prices from Public Gold Malaysia under the GOLD Accumulation Program (999). Prices are subject to change without prior notice.</p>
-    <p style="font-size:0.72rem;color:var(--muted);line-height:1.7;font-style:italic">Data dan harga Gold yang dipaparkan di laman ini adalah berdasarkan harga rasmi terkini daripada Public Gold Malaysia di bawah GOLD Accumulation Program (999). Harga adalah tertakluk kepada perubahan semasa tanpa notis.</p>
+    <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:0.75rem">The Gold data and prices displayed on this website are based on the latest official prices from Public Gold Malaysia under the GOLD Accumulation Program (24K). Prices are subject to change without prior notice.</p>
+    <p style="font-size:0.72rem;color:var(--muted);line-height:1.7;font-style:italic">Data dan harga Gold yang dipaparkan di laman ini adalah berdasarkan harga rasmi terkini daripada Public Gold Malaysia di bawah GOLD Accumulation Program (24K). Harga adalah tertakluk kepada perubahan semasa tanpa notis.</p>
   </div>
   <footer>
     publicgoldprice.com · Gold Price (RM/g) · Refreshes every 3 min · Updated: <span id="last-updated">—</span>
@@ -517,6 +517,15 @@
 
   function fmtShort(d) {
     return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+  }
+
+  function fmtTime(t) {
+    if (!t) return '—';
+    const [h, m] = t.split(':').map(Number);
+    if (isNaN(h)) return t;
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const h12  = h % 12 || 12;
+    return h12 + ':' + String(m).padStart(2,'0') + ' ' + ampm;
   }
 
   function fmtPrice(p) {
@@ -626,7 +635,7 @@
           <div class="hero-stats">
             <div class="stat">
               <div class="stat-label">Last Updated</div>
-              <div class="stat-val">${latest.time || '—'}</div>
+              <div class="stat-val">${fmtTime(latest.time)}</div>
             </div>
             <div class="stat">
               <div class="stat-label">Changes Today</div>
@@ -646,7 +655,7 @@
 
       if (today && gi === 0) {
         html += `
-        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.75rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia SAP 999</a> rates and are subject to change.</p>
+        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.75rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia GAP 24K</a> rates and are subject to change.</p>
         <div id="ad-placeholder"></div>`;
       }
 
@@ -675,7 +684,7 @@
         const prev = entries[i+1]?.price ?? null;
         html += `
               <tr>
-                <td class="td-time">${e.time || '—'}</td>
+                <td class="td-time">${fmtTime(e.time)}</td>
                 <td class="td-price">RM ${fmtPrice(e.price)}${mobileChange(e.price, prev)}</td>
                 <td class="td-change">${badge(e.price, prev)}</td>
               </tr>`;

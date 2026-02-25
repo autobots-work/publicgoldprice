@@ -530,9 +530,12 @@
         }
 
         html += `
-        <div style="display:flex;justify-content:flex-end;align-items:center;gap:0.6rem;margin-bottom:1.2rem">
-          <span style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace" id="countdown-txt">30s</span>
-          <div class="live-badge"><span class="live-dot"></span> Live</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:0.6rem;margin-bottom:1.2rem">
+          <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:2.2rem;letter-spacing:6px;color:#c8cdd6;line-height:1;text-transform:uppercase">SILVER</div>
+          <div style="display:flex;align-items:center;gap:0.6rem">
+            <span style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace" id="countdown-txt">30s</span>
+            <div class="live-badge"><span class="live-dot"></span> Live</div>
+          </div>
         </div>
         <div class="hero">
           <div class="hero-top">
@@ -541,7 +544,7 @@
               <div class="hero-price-wrap">
                 <span class="hero-currency">RM</span>
                 <span class="hero-price">${fmtPrice(latest.price)}</span>
-                <span class="hero-unit">/ 100 g</span>
+                <span class="hero-unit">/ 100 gram</span>
               </div>
             </div>
             <div class="hero-change-wrap">
@@ -555,7 +558,7 @@
               <div class="stat-val">${latest.time || '—'}</div>
             </div>
             <div class="stat">
-              <div class="stat-label">Changes Today</div>
+              <div class="stat-label">Entries Today</div>
               <div class="stat-val">${entries.length}</div>
             </div>
             <div class="stat">
@@ -568,6 +571,15 @@
             </div>
           </div>
         </div>`;
+      }
+
+      // ── Disclaimer after hero ──
+      if (today && gi === 0) {
+        html += `
+        <div style="margin-bottom:2rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:12px">
+          <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:0.75rem">The Silver data and prices displayed on this website are based on the latest official prices from Public Gold Malaysia under the SILVER Accumulation Program (999). Prices are subject to change without prior notice.</p>
+          <p style="font-size:0.72rem;color:var(--muted);line-height:1.7;font-style:italic">Data dan harga Silver yang dipaparkan di laman ini adalah berdasarkan harga rasmi terkini daripada Public Gold Malaysia di bawah SILVER Accumulation Program (999). Harga adalah tertakluk kepada perubahan semasa tanpa notis.</p>
+        </div>\`;
       }
 
       const pillClass = today ? 'today' : 'past';

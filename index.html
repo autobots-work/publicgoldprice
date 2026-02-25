@@ -373,7 +373,7 @@
       main { padding: 1.25rem 1rem 4rem; }
 
       .hero { padding: 1.25rem; border-radius: 12px; margin-bottom: 1.5rem; }
-      .hero-price { font-size: 2.7rem; letter-spacing: -1.5px; }
+      .hero-price { font-size: 3rem; letter-spacing: -1.5px; }
       .hero-currency { font-size: 1.2rem; }
       .hero-change { font-size: 1.2rem; }
 
@@ -393,7 +393,8 @@
     }
   </style>
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5267120092715349" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5267120092715349"
+       crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -409,13 +410,13 @@
     <p style="font-size:0.72rem;color:var(--muted);line-height:1.7;font-style:italic">Data dan harga Silver yang dipaparkan di laman ini adalah berdasarkan harga rasmi terkini daripada Public Gold Malaysia di bawah SILVER Accumulation Program (999). Harga adalah tertakluk kepada perubahan semasa tanpa notis.</p>
   </div>
   <footer>
-    publicgoldprice.com · Silver Price (RM/g) · Refreshes every 30s · Updated: <span id="last-updated">—</span>
+    publicgoldprice.com · Silver Price (RM/g) · Refreshes every 3 min · Updated: <span id="last-updated">—</span>
   </footer>
 </main>
 
 <script>
   const SHEET_ID   = '1nct9s5DQAzU1ql7h3p3Or8YPUZFRuYdnjawcYkKmojM';
-  const REFRESH_MS = 30_000;
+  const REFRESH_MS = 180_000;
 
   let countdown = REFRESH_MS / 1000;
   setInterval(() => {

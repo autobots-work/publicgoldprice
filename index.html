@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Silver Price — publicgoldprice.com</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg:        #0a0a0f;
@@ -49,7 +49,7 @@
     }
 
     .topbar-logo {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-weight: 800;
       font-size: 1rem;
       letter-spacing: -0.3px;
@@ -145,14 +145,14 @@
     }
 
     .hero-currency {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 1.6rem;
       font-weight: 600;
       color: var(--muted2);
     }
 
     .hero-price {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 4rem;
       font-weight: 800;
       color: var(--white);
@@ -168,7 +168,7 @@
     .hero-change-wrap { text-align: right; }
 
     .hero-change {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
     }
@@ -213,7 +213,7 @@
     }
 
     .stat-val {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       color: var(--white);
@@ -241,7 +241,7 @@
     }
 
     .date-pill {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -313,7 +313,7 @@
     }
 
     .td-price {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-weight: 700;
       font-size: 1.05rem;
       color: var(--white);
@@ -334,12 +334,14 @@
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 5px 10px;
+      gap: 4px;
+      padding: 4px 8px;
       border-radius: 8px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 500;
       white-space: nowrap;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .badge.up   { background: var(--up-bg);   color: var(--up);   }
@@ -379,7 +381,7 @@
       .desktop-only { display: none !important; }
 
       /* Show inline change under price */
-      .td-price .mobile-change { display: block; }
+      .td-price .mobile-change { display: none; }
 
       th, td { padding: 12px 12px; }
       .td-price { font-size: 0.95rem; }
@@ -446,7 +448,7 @@
   }
 
   function fmtPrice(p) {
-    return p.toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return p.toLocaleString('en-MY', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
 
   // ── CSV ───────────────────────────────────
@@ -583,7 +585,7 @@
               <tr>
                 <th>Time</th>
                 <th>Price</th>
-                <th class="right desktop-only">Change</th>
+                <th class="right">Change</th>
               </tr>
             </thead>
             <tbody>`;
@@ -594,7 +596,7 @@
               <tr>
                 <td class="td-time">${e.time || '—'}</td>
                 <td class="td-price">RM ${fmtPrice(e.price)}${mobileChange(e.price, prev)}</td>
-                <td class="td-change desktop-only">${badge(e.price, prev)}</td>
+                <td class="td-change">${badge(e.price, prev)}</td>
               </tr>`;
       });
 

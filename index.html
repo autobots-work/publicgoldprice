@@ -530,7 +530,7 @@
         }
 
         html += `
-        <div style="display:flex;justify-content:flex-end;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
+        <div style="display:flex;justify-content:flex-end;align-items:center;gap:0.6rem;margin-bottom:1.2rem">
           <span style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace" id="countdown-txt">30s</span>
           <div class="live-badge"><span class="live-dot"></span> Live</div>
         </div>
@@ -541,7 +541,7 @@
               <div class="hero-price-wrap">
                 <span class="hero-currency">RM</span>
                 <span class="hero-price">${fmtPrice(latest.price)}</span>
-                <span class="hero-unit">/ 100 gram</span>
+                <span class="hero-unit">/ 100 g</span>
               </div>
             </div>
             <div class="hero-change-wrap">
@@ -555,7 +555,7 @@
               <div class="stat-val">${latest.time || '—'}</div>
             </div>
             <div class="stat">
-              <div class="stat-label">Entries Today</div>
+              <div class="stat-label">Changes Today</div>
               <div class="stat-val">${entries.length}</div>
             </div>
             <div class="stat">

@@ -455,6 +455,9 @@
 
       .date-full { display: none; }
 
+      .cta-box { flex-direction: column; align-items: stretch; }
+      .cta-box a { width: 100%; justify-content: center; }
+
       .nav-tab { padding: 5px 10px; font-size: 0.65rem; }
     }
   </style>
@@ -655,7 +658,7 @@
 
       if (today && gi === 0) {
         html += `
-        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.75rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia GAP 24K</a> rates and are subject to change.</p>
+        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.75rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia GAP 24K</a> rates and are subject to change. Prices updated every 3 minutes and recorded daily.</p>
         <div id="ad-placeholder"></div>`;
       }
 
@@ -708,12 +711,12 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
         // Insert CTA after ad
         const cta = document.createElement('div');
-        cta.innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border2);border-radius:12px;">
+        cta.innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border2);border-radius:12px;" class="cta-box">
           <div style="flex:1;min-width:200px">
-            <p style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:0.3rem">Belum jadi ahli Public Gold? Mulakan pelaburan emas/perak anda sekarang — percuma untuk daftar.</p>
-            <p style="font-size:0.7rem;color:var(--muted2);letter-spacing:0.3px"></p>
+            <p style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:0.3rem">Belum jadi ahli Public Gold? Mulakan pelaburan Emas &amp; Perak anda sekarang — percuma untuk daftar.</p>
+            <p style="font-size:0.7rem;color:var(--muted2);letter-spacing:0.3px">Daftar Percuma, 100% Patuh Syariah</p>
           </div>
-          <a href="https://publicgold.com.my/index.php?route=account/register&is_dealer=1&intro_pgcode=PG00258585" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.85rem;letter-spacing:0.5px;padding:12px 24px;border-radius:10px;background:linear-gradient(135deg,#c8943a,#e2b96f,#c8943a);background-size:200% auto;color:#0a0a0f;box-shadow:0 4px 20px rgba(226,185,111,0.35);transition:all 0.3s" onmouseover="this.style.backgroundPosition='right center';this.style.boxShadow='0 6px 28px rgba(226,185,111,0.55)'" onmouseout="this.style.backgroundPosition='left center';this.style.boxShadow='0 4px 20px rgba(226,185,111,0.35)'">
+          <a href="https://publicgold.com.my/index.php?route=account/register&is_dealer=1&intro_pgcode=PG00258585" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;display:inline-flex;width:clamp(auto,100%,auto);align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.85rem;letter-spacing:0.5px;padding:12px 24px;border-radius:10px;background:linear-gradient(135deg,#c8943a,#e2b96f,#c8943a);background-size:200% auto;color:#0a0a0f;box-shadow:0 4px 20px rgba(226,185,111,0.35);transition:all 0.3s" onmouseover="this.style.backgroundPosition='right center';this.style.boxShadow='0 6px 28px rgba(226,185,111,0.55)'" onmouseout="this.style.backgroundPosition='left center';this.style.boxShadow='0 4px 20px rgba(226,185,111,0.35)'">
             Daftar Sekarang &nbsp;→
           </a>
         </div>`;

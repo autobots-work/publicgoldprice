@@ -397,10 +397,7 @@
 
 <div class="topbar">
   <div class="topbar-logo">Public<span>Gold</span>Price</div>
-  <div class="topbar-right">
-    <span class="refresh-txt" id="countdown-txt">30s</span>
-    <div class="live-badge"><span class="live-dot"></span> Live</div>
-  </div>
+
 </div>
 
 <main>
@@ -544,6 +541,10 @@
               </div>
             </div>
             <div class="hero-change-wrap">
+              <div style="display:flex;align-items:center;gap:0.5rem;justify-content:flex-end;margin-bottom:0.6rem">
+                <span style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace" id="countdown-txt">30s</span>
+                <div class="live-badge"><span class="live-dot"></span> Live</div>
+              </div>
               <div class="hero-change ${changeClass}">${changeStr}</div>
               <div class="hero-change-sub">${changeSub}</div>
             </div>

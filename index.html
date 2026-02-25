@@ -412,11 +412,11 @@
   const REFRESH_MS = 30_000;
 
   let countdown = REFRESH_MS / 1000;
-  const countdownEl = document.getElementById('countdown-txt');
   setInterval(() => {
     countdown--;
     if (countdown <= 0) countdown = REFRESH_MS / 1000;
-    countdownEl.textContent = countdown + 's';
+    const el = document.getElementById('countdown-txt');
+    if (el) el.textContent = 'Refresh in ' + countdown + 's';
   }, 1000);
 
   // ── Utils ─────────────────────────────────
@@ -530,23 +530,23 @@
         }
 
         html += `
-        <div style="display:flex;justify-content:flex-end;align-items:center;gap:0.6rem;margin-bottom:1.2rem">
+        <div style="display:flex;justify-content:flex-end;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
           <span style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace" id="countdown-txt">30s</span>
           <div class="live-badge"><span class="live-dot"></span> Live</div>
         </div>
         <div class="hero">
           <div class="hero-top">
             <div>
-              <div class="hero-label">Today's Latest Price</div>
+              <div class="hero-label">Silver Latest Price</div>
               <div class="hero-price-wrap">
                 <span class="hero-currency">RM</span>
                 <span class="hero-price">${fmtPrice(latest.price)}</span>
-                <span class="hero-unit">/g</span>
+                <span class="hero-unit">/ 100 gram</span>
               </div>
             </div>
             <div class="hero-change-wrap">
               <div class="hero-change ${changeClass}">${changeStr}</div>
-              <div class="hero-change-sub">${changeSub}</div>
+              <div class="hero-change-sub" style="color:${changeClass==='up'?'var(--up)':changeClass==='down'?'var(--down)':'var(--muted)'}">${changeSub}</div>
             </div>
           </div>
           <div class="hero-stats">
@@ -585,7 +585,7 @@
             <thead>
               <tr>
                 <th>Time</th>
-                <th>Price</th>
+                <th>PRICE / 100 g</th>
                 <th class="right">Change</th>
               </tr>
             </thead>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- SEO -->
-  <title>Public Gold Silver Price Today | Harga Silver Public Gold Malaysia | PublicGoldPrice.com</title>
+  <title>Public Gold Silver Price Today | Harga Silver Public Gold - PublicGoldPrice.com</title>
   <meta name="description" content="Check Public Gold silver price today in Malaysia. Live silver price based on Public Gold official SAP 999 rates. Harga Silver Public Gold terkini dikemaskini setiap 3 minit.">
   <meta name="keywords" content="public gold silver price, harga silver public gold, silver price malaysia, public gold silver today, harga perak public gold, SAP 999 silver price malaysia">
   <meta name="robots" content="index, follow">
@@ -238,7 +238,7 @@
 
     .hero-change {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       font-weight: 700;
     }
 
@@ -281,7 +281,7 @@
 
     .stat-val {
       font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--white);
     }
@@ -519,6 +519,15 @@
     return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
   }
 
+  function fmtTime(t) {
+    if (!t) return '—';
+    const [h, m] = t.split(':').map(Number);
+    if (isNaN(h)) return t;
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const h12  = h % 12 || 12;
+    return h12 + ':' + String(m).padStart(2,'0') + ' ' + ampm;
+  }
+
   function fmtPrice(p) {
     return p.toLocaleString('en-MY', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
@@ -626,7 +635,7 @@
           <div class="hero-stats">
             <div class="stat">
               <div class="stat-label">Last Updated</div>
-              <div class="stat-val">${latest.time || '—'}</div>
+              <div class="stat-val">${fmtTime(latest.time)}</div>
             </div>
             <div class="stat">
               <div class="stat-label">Changes Today</div>
@@ -675,7 +684,7 @@
         const prev = entries[i+1]?.price ?? null;
         html += `
               <tr>
-                <td class="td-time">${e.time || '—'}</td>
+                <td class="td-time">${fmtTime(e.time)}</td>
                 <td class="td-price">RM ${fmtPrice(e.price)}${mobileChange(e.price, prev)}</td>
                 <td class="td-change">${badge(e.price, prev)}</td>
               </tr>`;

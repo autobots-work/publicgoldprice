@@ -392,6 +392,8 @@
       .date-full { display: none; }
     }
   </style>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5267120092715349" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -580,7 +582,11 @@
       // ── Simple note after hero ──
       if (today && gi === 0) {
         html += `
-        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.75rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia SAP 999</a> rates and are subject to change.</p>`;
+        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.75rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia SAP 999</a> rates and are subject to change.</p>
+        <!-- AD UNIT -->
+        <div id="ad-box" style="margin-bottom:2rem;min-height:100px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--border2);border-radius:12px;padding:1rem">
+          <!-- PASTE ADS CODE HERE -->
+        </div>`;
       }
 
       const pillClass = today ? 'today' : 'past';

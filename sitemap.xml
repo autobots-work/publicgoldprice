@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
     <loc>https://publicgoldprice.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://publicgoldprice.com/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://publicgoldprice.com/ms/"/>
     <lastmod>2026-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -10,9 +13,29 @@
 
   <url>
     <loc>https://publicgoldprice.com/silver.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://publicgoldprice.com/silver.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://publicgoldprice.com/ms/silver.html"/>
     <lastmod>2026-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://publicgoldprice.com/ms/</loc>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://publicgoldprice.com/ms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://publicgoldprice.com/"/>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://publicgoldprice.com/ms/silver.html</loc>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://publicgoldprice.com/ms/silver.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://publicgoldprice.com/silver.html"/>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

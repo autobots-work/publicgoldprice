@@ -11,7 +11,6 @@
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/png" href="/PublicGoldPriceIcon.png">
   <link rel="canonical" href="https://publicgoldprice.com/">
-
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://publicgoldprice.com/">
@@ -22,7 +21,6 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Public Gold Price Tracker - PublicGoldPrice.com">
-
   <!-- Schema Markup -->
   <script type="application/ld+json">
   {
@@ -469,7 +467,7 @@
 </head>
 <body>
 
-<h1 class="seo-h1">Public Gold Price Today | Gold Price Public Gold Tracker - PublicGoldPrice.com</h1>
+<h1 class="seo-h1">Public Gold Price Today - 24 Hours Price Tracker</h1>
 
 <div class="topbar">
   <div class="topbar-logo">Public<span>Gold</span>Price</div>
@@ -663,8 +661,7 @@
 
       if (today && gi === 0) {
         html += `
-        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.75rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia GAP 24K</a> rates and are subject to change. Prices updated every 3 minutes and recorded daily.</p>
-        <div id="ad-placeholder"></div>`;
+        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.75rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia GAP 24K</a> rates and are subject to change. Prices updated every 3 minutes and recorded daily.</p>`;
       }
 
       const pillClass = today ? 'today' : 'past';
@@ -709,25 +706,6 @@
     countdown = REFRESH_MS / 1000;
     try {
       render(await fetchData());
-      const slot = document.getElementById('ad-placeholder');
-      if (slot && !slot.hasChildNodes()) {
-        slot.style.cssText = 'margin-bottom:2rem';
-        slot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5267120092715349" data-ad-slot="4786935856" data-ad-format="auto" data-full-width-responsive="true"></ins>';
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        // Insert CTA after ad
-        const cta = document.createElement('div');
-        cta.innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border2);border-radius:12px;" class="cta-box">
-          <div style="flex:1;min-width:200px">
-            <p style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:0.3rem">Belum jadi ahli Public Gold? Mulakan pelaburan Emas &amp; Perak anda serendah RM100 sebulan je!</p>
-            <p style="font-size:0.7rem;color:var(--muted2);letter-spacing:0.3px">Daftar Percuma, 100% Patuh Syariah</p>
-          </div>
-          <a href="https://publicgold.com.my/index.php?route=account/register&is_dealer=1&intro_pgcode=PG00258585" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;display:inline-flex;width:clamp(auto,100%,auto);align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.85rem;letter-spacing:0.5px;padding:12px 24px;border-radius:10px;background:linear-gradient(135deg,#c8943a,#e2b96f,#c8943a);background-size:200% auto;color:#0a0a0f;box-shadow:0 4px 20px rgba(226,185,111,0.35);transition:all 0.3s" onmouseover="this.style.backgroundPosition='right center';this.style.boxShadow='0 6px 28px rgba(226,185,111,0.55)'" onmouseout="this.style.backgroundPosition='left center';this.style.boxShadow='0 4px 20px rgba(226,185,111,0.35)'">
-            Daftar Sekarang &nbsp;→
-          </a>
-        </div>`;
-        slot.parentNode.insertBefore(cta, slot.nextSibling);
-      }
-    }
     catch(e) { console.error(e); document.getElementById('last-updated').textContent = 'Error — retrying…'; }
   }
 

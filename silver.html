@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Public Gold Silver Price Today - 24 Hours Price Tracker</title>
   <meta name="description" content="Check current Public Gold silver price today. Live silver price tracker based on Public Gold Official SAP 999 rates. Updated every 3 minutes and recorded daily.">
   <meta name="keywords" content="public gold silver price, silver price public gold, harga perak public gold, public gold silver today, harga perak sekarang">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index,follow">
   <link rel="icon" type="image/png" href="/PublicGoldPriceIcon.png">
   <meta name="theme-color" content="#0a0a0f">
   <link rel="canonical" href="https://publicgoldprice.com/silver.html">
@@ -83,7 +83,6 @@
     tbody tr:hover td{background:rgba(255,255,255,0.02);}
     .td-time{color:var(--muted2);font-size:0.82rem;white-space:nowrap;}
     .td-price{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;color:var(--white);white-space:nowrap;}
-    .td-price .mobile-change{display:none;font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:400;margin-top:3px;}
     .td-change{text-align:right;}
     .badge{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:8px;font-size:0.72rem;font-weight:500;white-space:nowrap;flex-wrap:wrap;justify-content:flex-end;}
     .badge.up{background:var(--up-bg);color:var(--up);} .badge.down{background:var(--down-bg);color:var(--down);} .badge.flat{background:var(--flat-bg);color:var(--muted2);}
@@ -91,7 +90,6 @@
     .expand-row td{text-align:center;padding:10px;}
     .expand-btn{font-family:'Outfit',sans-serif;font-size:0.7rem;font-weight:700;color:var(--muted2);background:none;border:1px solid var(--border2);border-radius:20px;padding:5px 16px;cursor:pointer;transition:all 0.2s;letter-spacing:0.5px;}
     .expand-btn:hover{color:var(--white);border-color:var(--accent);}
-    .hidden-rows{display:none;}
     .teaser-card{background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:1.5rem;margin:2rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;position:relative;overflow:hidden;}
     .teaser-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,0.01) 10px,rgba(255,255,255,0.01) 20px);}
     .teaser-badge{font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:rgba(200,205,214,0.12);color:var(--accent);border:1px solid rgba(200,205,214,0.3);padding:3px 10px;border-radius:20px;margin-bottom:0.5rem;display:inline-block;}
@@ -143,18 +141,26 @@
 <main>
   <div id="content"><div class="empty">Loading…</div></div>
 
-  <!-- Static SEO sections 4-6 + CTA -->
-  <div style="margin-top:2.5rem">
-
-        <div class="cta-box" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border2);border-radius:12px;">
-          <div style="flex:1;min-width:200px">
-            <p style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:0.3rem">Not a Public Gold member yet? Start investing in Gold &amp; Silver from as low as RM100 a month!</p>
-            <p style="font-size:0.7rem;color:var(--muted2);letter-spacing:0.3px">Free Registration, 100% Shariah Compliant</p>
-          </div>
-          <a href="https://publicgold.com.my/index.php?route=account/register&is_dealer=1&intro_pgcode=PG00258585" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.85rem;letter-spacing:0.5px;padding:12px 24px;border-radius:10px;background:linear-gradient(135deg,#8a9099,#c8cdd6,#8a9099);background-size:200% auto;color:#0a0a0f;box-shadow:0 4px 20px rgba(200,205,214,0.3);transition:all 0.3s" onmouseover="this.style.backgroundPosition='right center';this.style.boxShadow='0 6px 28px rgba(200,205,214,0.5)'" onmouseout="this.style.backgroundPosition='left center';this.style.boxShadow='0 4px 20px rgba(200,205,214,0.3)'">
-            Register For Free &nbsp;→
-          </a>
-        </div>
+  <!-- Static sections S4, S5, S6 + CTA — always in DOM for SEO -->
+  <div id="static-sections" style="margin-top:2.5rem">
+    <div class="teaser-card" style="margin-top:0">
+      <div>
+        <div class="teaser-badge">Coming Soon</div>
+        <div class="teaser-title">📊 Full Price History — Coming Soon</div>
+        <div class="teaser-body">Access complete 30, 90 &amp; 180-day price records. Perfect for investors who want to study long-term gold price movements.</div>
+      </div>
+      <button class="teaser-btn" disabled>Notify Me</button>
+    </div>
+    <p class="seo-p" style="margin-bottom:2rem">The silver price displayed here reflects the latest Public Gold SAP 999 rate for today. Prices may change throughout the day in line with global silver market movements. Every price change is recorded by PublicGoldPrice.com for your reference.</p>
+    <div class="cta-box" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border2);border-radius:12px;">
+      <div style="flex:1;min-width:200px">
+        <p style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:0.3rem">Not a Public Gold member yet? Start investing in Gold &amp; Silver from as low as RM100 a month!</p>
+        <p style="font-size:0.7rem;color:var(--muted2);letter-spacing:0.3px">Free Registration, 100% Shariah Compliant</p>
+      </div>
+      <a href="https://publicgold.com.my/index.php?route=account/register&is_dealer=1&intro_pgcode=PG00258585" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.85rem;letter-spacing:0.5px;padding:12px 24px;border-radius:10px;background:linear-gradient(135deg,#8a9099,#c8cdd6,#8a9099);background-size:200% auto;color:#0a0a0f;box-shadow:0 4px 20px rgba(200,205,214,0.3);transition:all 0.3s" onmouseover="this.style.backgroundPosition='right center';this.style.boxShadow='0 6px 28px rgba(200,205,214,0.5)'" onmouseout="this.style.backgroundPosition='left center';this.style.boxShadow='0 4px 20px rgba(200,205,214,0.3)'">
+        Register For Free &nbsp;→
+      </a>
+    </div>
     <div class="seo-section">
       <h2 class="seo-h2">What is Public Gold SAP 999?</h2>
       <p class="seo-p">Public Gold SAP 999, or the Silver Accumulation Program, is a Shariah-compliant silver investment program offered by Public Gold Malaysia. It allows investors to purchase and accumulate 999 pure silver gradually, starting from a small amount. The SAP 999 silver price is updated in line with global silver market movements and may change at any time. PublicGoldPrice.com records every price change for your reference.</p>
@@ -183,8 +189,8 @@
 </main>
 
 <script>
-  const SHEET_ID  = '1nct9s5DQAzU1ql7h3p3Or8YPUZFRuYdnjawcYkKmojM';
-  const SHEET_GID = '36921757';
+  const SHEET_ID   = '1nct9s5DQAzU1ql7h3p3Or8YPUZFRuYdnjawcYkKmojM';
+  const SHEET_GID  = '36921757';
   const REFRESH_MS = 180_000;
   const MAX_DAYS   = 7;
   const PREVIEW_ROWS = 3;
@@ -213,17 +219,14 @@
     return d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate();
   }
 
-  function fmtDate(d) { return d.toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long',year:'numeric'}); }
-  function fmtShort(d) { return d.toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'}); }
-
+  function fmtDate(d) { return d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}); }
+  function fmtShort(d) { return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}); }
   function fmtTime(t) {
     if (!t) return '—';
     const [h,m] = t.split(':').map(Number);
     if (isNaN(h)) return t;
-    const ampm = h>=12?'PM':'AM';
-    return (h%12||12)+':'+String(m).padStart(2,'0')+' '+ampm;
+    return (h%12||12)+':'+String(m).padStart(2,'0')+(h>=12?' PM':' AM');
   }
-
   function fmtPrice(p) { return p.toLocaleString('en-MY',{minimumFractionDigits:0,maximumFractionDigits:0}); }
 
   function parseCSV(text) {
@@ -256,14 +259,6 @@
     return '<span class="badge flat">No change</span>';
   }
 
-  function mobileChange(curr, prev) {
-    if (prev==null) return '';
-    const diff=curr-prev, pct=((diff/prev)*100).toFixed(2);
-    if (diff>0) return `<span class="mobile-change" style="color:var(--up)">▲ RM ${fmtPrice(diff)} (+${pct}%)</span>`;
-    if (diff<0) return `<span class="mobile-change" style="color:var(--down)">▼ RM ${fmtPrice(Math.abs(diff))} (${pct}%)</span>`;
-    return `<span class="mobile-change" style="color:var(--muted2)">No change</span>`;
-  }
-
   function groupByDate(records) {
     const map={};
     records.forEach(r=>{
@@ -275,66 +270,66 @@
   }
 
   function buildRows(entries, isFullDay) {
-    const showAll = isFullDay || entries.length <= PREVIEW_ROWS;
-    const visible = showAll ? entries : entries.slice(0, PREVIEW_ROWS);
+    const showAll = isFullDay || entries.length<=PREVIEW_ROWS;
+    const visible = showAll ? entries : entries.slice(0,PREVIEW_ROWS);
     const hidden  = showAll ? [] : entries.slice(PREVIEW_ROWS);
-    let rows = '';
-    visible.forEach((e,i) => {
-      const prev = entries[i+1]?.price ?? null;
-      rows += `<tr><td class="td-time">${fmtTime(e.time)}</td><td class="td-price">RM ${fmtPrice(e.price)}${mobileChange(e.price,prev)}</td><td class="td-change">${badge(e.price,prev)}</td></tr>`;
+    let rows='';
+    visible.forEach((e,i)=>{
+      const prev=entries[i+1]?.price??null;
+      rows+=`<tr><td class="td-time">${fmtTime(e.time)}</td><td class="td-price">RM ${fmtPrice(e.price)}</td><td class="td-change">${badge(e.price,prev)}</td></tr>`;
     });
     if (hidden.length) {
-      const uid = 'h'+Math.random().toString(36).slice(2,7);
-      rows += `<tr class="hidden-rows" id="${uid}"><td colspan="3" style="padding:0"><table style="width:100%;border-collapse:collapse">`;
-      hidden.forEach((e,i) => {
-        const prev = entries[PREVIEW_ROWS+i+1]?.price ?? null;
-        rows += `<tr><td class="td-time" style="padding:14px 16px;border-top:1px solid var(--border)">${fmtTime(e.time)}</td><td class="td-price" style="padding:14px 16px;border-top:1px solid var(--border)">RM ${fmtPrice(e.price)}${mobileChange(e.price,prev)}</td><td class="td-change" style="padding:14px 16px;border-top:1px solid var(--border);text-align:right">${badge(e.price,prev)}</td></tr>`;
+      const uid='h'+Math.random().toString(36).slice(2,7);
+      rows+=`<tr id="${uid}" style="display:none"><td colspan="3" style="padding:0"><table style="width:100%;border-collapse:collapse">`;
+      hidden.forEach((e,i)=>{
+        const prev=entries[PREVIEW_ROWS+i+1]?.price??null;
+        rows+=`<tr><td class="td-time" style="padding:14px 16px;border-top:1px solid var(--border)">${fmtTime(e.time)}</td><td class="td-price" style="padding:14px 16px;border-top:1px solid var(--border)">RM ${fmtPrice(e.price)}</td><td class="td-change" style="padding:14px 16px;border-top:1px solid var(--border);text-align:right">${badge(e.price,prev)}</td></tr>`;
       });
-      rows += `</table></td></tr>`;
-      rows += `<tr class="expand-row"><td colspan="3"><button class="expand-btn" onclick="toggleRows('${uid}',this)">Show all ${hidden.length} entries</button></td></tr>`;
+      rows+=`</table></td></tr>`;
+      rows+=`<tr class="expand-row"><td colspan="3"><button class="expand-btn" onclick="toggleRows('${uid}',this)">Show all ${hidden.length} entries</button></td></tr>`;
     }
     return rows;
   }
 
   function toggleRows(uid, btn) {
-    const el = document.getElementById(uid);
-    const open = el.style.display === 'contents';
-    el.style.display = open ? 'none' : 'contents';
-    btn.textContent = open ? btn.textContent.replace(/^▲\s*/,'') : '▲ '+btn.textContent;
+    const el=document.getElementById(uid);
+    const open=el.style.display==='table-row';
+    el.style.display=open?'none':'table-row';
+    btn.textContent=open?btn.textContent.replace(/^▲\s*/,''):'▲ '+btn.textContent;
   }
 
   function render(records) {
     if (!records.length) {
-      document.getElementById('content').innerHTML = '<div class="empty">No data found.</div>';
+      document.getElementById('content').innerHTML='<div class="empty">No data found.</div>';
       return;
     }
 
-    const allGroups = groupByDate(records);
-    const cutoff = new Date(); cutoff.setDate(cutoff.getDate()-(MAX_DAYS-1)); cutoff.setHours(0,0,0,0);
-    const groups  = allGroups.filter(g => g.date >= cutoff);
-    let html = '';
+    const allGroups=groupByDate(records);
+    const cutoff=new Date(); cutoff.setDate(cutoff.getDate()-(MAX_DAYS-1)); cutoff.setHours(0,0,0,0);
+    const groups=allGroups.filter(g=>g.date>=cutoff);
+    let html='';
 
-    groups.forEach((group, gi) => {
-      const today     = isToday(group.date);
-      const isYest    = gi===1 && !today;
-      const entries   = group.entries;
-      const latest    = entries[0];
-      const oldest    = entries[entries.length-1];
+    groups.forEach((group,gi)=>{
+      const today=isToday(group.date);
+      const isYest=gi===1&&!today;
+      const entries=group.entries;
+      const latest=entries[0];
+      const oldest=entries[entries.length-1];
 
-      // ── Hero (today only) ──────────────────────────────────
+      // ── MODULE 3: Title + Hero (today only) ──────────────────
       if (today && gi===0) {
-        const dayDiff = entries.length>1 ? latest.price-oldest.price : null;
-        const dayPct  = dayDiff!=null ? ((dayDiff/oldest.price)*100).toFixed(2) : null;
-        const high    = Math.max(...entries.map(e=>e.price));
-        const low     = Math.min(...entries.map(e=>e.price));
-        let changeClass='flat', changeStr='—', changeSub='first entry today';
+        const dayDiff=entries.length>1?latest.price-oldest.price:null;
+        const dayPct=dayDiff!=null?((dayDiff/oldest.price)*100).toFixed(2):null;
+        const high=Math.max(...entries.map(e=>e.price));
+        const low=Math.min(...entries.map(e=>e.price));
+        let cc='flat',cs='—',csub='first entry today';
         if (dayDiff!=null) {
-          if (dayDiff>0)      {changeClass='up';  changeStr=`+RM ${fmtPrice(dayDiff)}`;           changeSub=`+${dayPct}% today`;}
-          else if (dayDiff<0) {changeClass='down'; changeStr=`-RM ${fmtPrice(Math.abs(dayDiff))}`; changeSub=`${dayPct}% today`;}
-          else                {changeStr='No change'; changeSub='flat today';}
+          if(dayDiff>0)      {cc='up';  cs=`+RM ${fmtPrice(dayDiff)}`;           csub=`+${dayPct}% today`;}
+          else if(dayDiff<0) {cc='down'; cs=`-RM ${fmtPrice(Math.abs(dayDiff))}`; csub=`${dayPct}% today`;}
+          else               {cs='No change'; csub='flat today';}
         }
-        const heroDate = group.date.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',year:'numeric'});
-        html += `
+        const heroDate=group.date.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',year:'numeric'});
+        html+=`
         <div style="display:flex;justify-content:space-between;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
           <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:2.2rem;color:#c8cdd6;line-height:1;text-transform:uppercase">SILVER</div>
           <div style="display:flex;align-items:center;gap:0.6rem">
@@ -354,8 +349,8 @@
               </div>
             </div>
             <div class="hero-change-wrap">
-              <div class="hero-change ${changeClass}">${changeStr}</div>
-              <div class="hero-change-sub" style="color:${changeClass==='up'?'var(--up)':changeClass==='down'?'var(--down)':'var(--muted)'}">${changeSub}</div>
+              <div class="hero-change ${cc}">${cs}</div>
+              <div class="hero-change-sub" style="color:${cc==='up'?'var(--up)':cc==='down'?'var(--down)':'var(--muted)'}">${csub}</div>
             </div>
           </div>
           <div class="hero-stats">
@@ -368,12 +363,25 @@
         <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:2rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:#c8cdd6;text-decoration:none;border-bottom:1px solid rgba(200,205,214,0.4)">Public Gold Malaysia SAP 999</a> rates and are subject to change. Prices updated every 3 minutes and recorded daily.</p>`;
       }
 
-      // ── Price table ─────────────────────────────────────────
-      const pillClass = today ? 'today' : 'past';
-      const pillLabel = today ? "Today's Price Records" : (isYest ? `YESTERDAY - ${fmtShort(group.date)}` : fmtShort(group.date));
-      const isFullDay = today || isYest;
+      // ── MODULE 9: S2 Yesterday paragraph ABOVE yesterday table ──
+      if (isYest) {
+        const yFmt=group.date.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+        const yLast=entries[0];
+        const yHigh=entries.reduce((a,b)=>a.price>b.price?a:b);
+        const yLow =entries.reduce((a,b)=>a.price<b.price?a:b);
+        html+=`
+        <div class="seo-section" style="margin-bottom:1rem">
+          <h2 class="seo-h2">Yesterday's Public Gold Silver Price — ${yFmt}</h2>
+          <p class="seo-p">The last recorded Public Gold silver price yesterday was <strong>RM ${fmtPrice(yLast.price)}</strong> per gram. The highest price yesterday was recorded at <strong>${fmtTime(yHigh.time)}</strong> at <strong>RM ${fmtPrice(yHigh.price)}</strong> per gram, while the lowest was recorded at <strong>${fmtTime(yLow.time)}</strong> at <strong>RM ${fmtPrice(yLow.price)}</strong> per gram.</p>
+        </div>`;
+      }
 
-      html += `
+      // ── Price table ──────────────────────────────────────────
+      const pillClass=today?'today':'past';
+      const pillLabel=today?"Today's Price Records":(isYest?`YESTERDAY - ${fmtShort(group.date)}`:fmtShort(group.date));
+      const isFullDay=today||isYest;
+
+      html+=`
       <div class="date-section" style="animation-delay:${gi*0.05}s">
         <div class="date-row">
           <div class="date-pill ${pillClass}">${pillLabel}</div>
@@ -383,48 +391,36 @@
         <div class="table-wrap">
           <table>
             <thead><tr><th>Time</th><th>PRICE / 100 g</th><th class="right">Change</th></tr></thead>
-            <tbody>${buildRows(entries, isFullDay)}</tbody>
+            <tbody>${buildRows(entries,isFullDay)}</tbody>
           </table>
         </div>
       </div>`;
 
-      // ── SEO S1, S2, S3 after today table ────────────────────
+      // ── After today table: S1 line 1 + S3 weekly card ────────
       if (today && gi===0) {
-        const todayFmt = group.date.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-        const diffToday = entries.length>1 ? latest.price-oldest.price : null;
+        const todayFmt=group.date.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+        const diffToday=entries.length>1?latest.price-oldest.price:null;
         let moveWord='unchanged';
-        if (diffToday!=null) { if(diffToday>0) moveWord='up'; else if(diffToday<0) moveWord='down'; }
+        if(diffToday!=null){if(diffToday>0)moveWord='up';else if(diffToday<0)moveWord='down';}
 
-        html += `
+        // S1 — first line only
+        html+=`
         <div class="seo-section" style="margin-top:2rem">
           <h2 class="seo-h2">Today's Public Gold Silver Price</h2>
           <p class="seo-p">${todayFmt} — The latest Public Gold silver price today is <strong>RM ${fmtPrice(latest.price)}</strong> per gram, recorded at <strong>${fmtTime(latest.time)}</strong>.${diffToday!=null&&diffToday!==0?` Price is ${moveWord} <strong>RM ${fmtPrice(Math.abs(diffToday))}</strong> compared to the first entry today (<strong>RM ${fmtPrice(oldest.price)}</strong>).`:''}</p>
-          <p class="seo-p">The silver price displayed here reflects the latest Public Gold SAP 999 rate for today. Prices may change throughout the day in line with global silver market movements. Every price change is recorded by PublicGoldPrice.com for your reference.</p>
         </div>`;
 
-        if (groups[1]) {
-          const yg=groups[1];
-          const yFmt=yg.date.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-          const yLast=yg.entries[0];
-          const yHigh=yg.entries.reduce((a,b)=>a.price>b.price?a:b);
-          const yLow =yg.entries.reduce((a,b)=>a.price<b.price?a:b);
-          html += `
-          <div class="seo-section">
-            <h2 class="seo-h2">Yesterday's Public Gold Silver Price — ${yFmt}</h2>
-            <p class="seo-p">The last recorded Public Gold silver price yesterday was <strong>RM ${fmtPrice(yLast.price)}</strong> per gram. The highest price yesterday was recorded at <strong>${fmtTime(yHigh.time)}</strong> at <strong>RM ${fmtPrice(yHigh.price)}</strong> per gram, while the lowest was recorded at <strong>${fmtTime(yLow.time)}</strong> at <strong>RM ${fmtPrice(yLow.price)}</strong> per gram.</p>
-          </div>`;
-        }
-
+        // S3 — weekly summary card
         const now=new Date();
         const wStart=new Date(now); wStart.setDate(wStart.getDate()-6); wStart.setHours(0,0,0,0);
         const wRecs=records.filter(r=>r.date>=wStart);
-        if (wRecs.length) {
+        if(wRecs.length){
           const wHigh=Math.max(...wRecs.map(r=>r.price));
           const wLow =Math.min(...wRecs.map(r=>r.price));
           const wAvg =wRecs.reduce((s,r)=>s+r.price,0)/wRecs.length;
           const wSF  =wStart.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
           const wEF  =now.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-          html += `
+          html+=`
           <div class="seo-card">
             <div class="seo-card-header">
               <span class="seo-card-title">This Week's Public Gold Silver Price Summary</span>
@@ -441,25 +437,14 @@
       }
     });
 
-    // Teaser card
-    html += `
-    <div class="teaser-card">
-      <div>
-        <div class="teaser-badge">Coming Soon</div>
-        <div class="teaser-title">📊 Full Price History — Coming Soon</div>
-        <div class="teaser-body">Access complete 30, 90 &amp; 180-day price records. Perfect for investors who want to study long-term gold price movements.</div>
-      </div>
-      <button class="teaser-btn" disabled>Notify Me</button>
-    </div>`;
-
-    document.getElementById('content').innerHTML = html;
-    document.getElementById('last-updated').textContent = new Date().toLocaleTimeString('en-GB');
+    document.getElementById('content').innerHTML=html;
+    document.getElementById('last-updated').textContent=new Date().toLocaleTimeString('en-GB');
   }
 
   async function refresh() {
-    countdown = REFRESH_MS / 1000;
+    countdown=REFRESH_MS/1000;
     try { render(await fetchData()); }
-    catch(e) { console.error(e); document.getElementById('last-updated').textContent = 'Error — retrying…'; }
+    catch(e) { console.error(e); document.getElementById('last-updated').textContent='Error — retrying…'; }
   }
 
   refresh();

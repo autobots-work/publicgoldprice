@@ -6,21 +6,25 @@
 
   <!-- SEO -->
   <title>Public Gold Price Today - 24 Hours Price Tracker</title>
-  <meta name="description" content="Check Public Gold price today in Malaysia. Live gold price based on Public Gold Official GAP (24K) rates. Harga Public Gold terkini dikemaskini setiap 3 minit.">
-  <meta name="keywords" content="public gold price, gold price public gold, harga public gold, public gold price today, harga emas public gold, harga emas 999 public gold">
+  <meta name="description" content="Check current Public Gold gold price today. Live gold price tracker based on Public Gold Official GAP 24K rates. Updated every 3 minutes and recorded daily.">
+  <meta name="keywords" content="public gold gold price, gold price public gold, harga emas public gold, public gold gold today, harga emas sekarang">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/png" href="/PublicGoldPriceIcon.png">
   <link rel="canonical" href="https://publicgoldprice.com/">
+  <link rel="alternate" hreflang="ms" href="https://publicgoldprice.com/ms/">
+  <link rel="alternate" hreflang="en" href="https://publicgoldprice.com/">
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://publicgoldprice.com/">
   <meta property="og:title" content="Public Gold Price Today - 24 Hours Price Tracker">
-  <meta property="og:description" content="Check Public Gold price today in Malaysia. Live gold price based on Public Gold Official GAP (24K) rates. Updated every 3 minutes.">
+  <meta property="og:description" content="Check current Public Gold gold price today. Live gold price tracker based on Public Gold Official GAP 24K rates. Updated every 3 minutes.">
   <meta property="og:site_name" content="PublicGoldPrice.com">
   <meta property="og:image" content="https://publicgoldprice.com/PublicGoldPrice-Featured-Image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Public Gold Price Tracker - PublicGoldPrice.com">
+
   <!-- Schema Markup -->
   <script type="application/ld+json">
   {
@@ -34,7 +38,8 @@
       "name": "PublicGoldPrice.com",
       "url": "https://publicgoldprice.com"
     },
-    "keywords": ["public gold price", "gold price malaysia", "gold price public gold", "harga public gold", "harga emas 999 public gold"]
+    "inLanguage": "en",
+    "keywords": ["public gold gold price", "gold price public gold", "harga emas public gold"]
   }
   </script>
 
@@ -72,7 +77,6 @@
       min-height: 100vh;
     }
 
-    /* ── TOPBAR ── */
     .topbar {
       position: sticky;
       top: 0;
@@ -94,7 +98,13 @@
       letter-spacing: -0.3px;
     }
 
-    .topbar-logo span { color: var(--accent); }
+    .topbar-logo span { color: #e2b96f; }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
     .topbar-nav {
       display: flex;
@@ -131,6 +141,25 @@
       border-color: var(--border2);
     }
 
+    .lang-switch {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border2);
+      color: var(--muted2);
+      transition: all 0.2s;
+    }
+
+    .lang-switch:hover {
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
     .live-badge {
       display: flex;
       align-items: center;
@@ -158,14 +187,12 @@
       50% { opacity:0.2; }
     }
 
-    /* ── MAIN ── */
     main {
       max-width: 860px;
       margin: 0 auto;
       padding: 2rem 1.5rem 5rem;
     }
 
-    /* hidden h1 for SEO */
     .seo-h1 {
       position: absolute;
       width: 1px; height: 1px;
@@ -174,7 +201,6 @@
       white-space: nowrap;
     }
 
-    /* ── HERO ── */
     .hero {
       background: var(--surface);
       border: 1px solid var(--border2);
@@ -292,7 +318,6 @@
     .stat-val.up   { color: var(--up); }
     .stat-val.down { color: var(--down); }
 
-    /* ── DATE SECTION ── */
     .date-section {
       margin-bottom: 1.5rem;
       animation: fadeUp 0.4s ease both;
@@ -324,7 +349,7 @@
     .date-pill.today {
       background: rgba(226,185,111,0.15);
       color: var(--accent);
-      border: 1px solid rgba(226,185,111,0.3);
+      border: 1px solid rgba(226,185,111,0.35);
     }
 
     .date-pill.past {
@@ -341,7 +366,6 @@
       white-space: nowrap;
     }
 
-    /* ── TABLE ── */
     .table-wrap {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -400,7 +424,6 @@
 
     .td-change { text-align: right; }
 
-    /* ── BADGE ── */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -420,7 +443,6 @@
 
     .badge-pct { font-size: 0.65rem; opacity: 0.8; }
 
-    /* ── FOOTER ── */
     footer {
       text-align: center;
       font-size: 0.65rem;
@@ -438,7 +460,6 @@
       font-size: 0.85rem;
     }
 
-    /* ── MOBILE ── */
     @media (max-width: 600px) {
       .topbar { padding: 0 1rem; }
       main { padding: 1.25rem 1rem 4rem; }
@@ -462,6 +483,7 @@
       .cta-box a { width: 100%; justify-content: center; }
 
       .nav-tab { padding: 5px 10px; font-size: 0.65rem; }
+      .lang-switch { padding: 5px 8px; font-size: 0.6rem; }
     }
   </style>
 </head>
@@ -471,9 +493,12 @@
 
 <div class="topbar">
   <div class="topbar-logo">Public<span>Gold</span>Price</div>
-  <div class="topbar-nav">
-    <a class="nav-tab active" href="/">Gold</a>
-    <a class="nav-tab inactive" href="/silver.html">Silver</a>
+  <div class="topbar-right">
+    <div class="topbar-nav">
+      <a class="nav-tab active" href="/">Gold</a>
+      <a class="nav-tab inactive" href="/silver.html">Silver</a>
+    </div>
+    <a class="lang-switch" href="/ms/">BM</a>
   </div>
 </div>
 
@@ -484,7 +509,7 @@
     <p style="font-size:0.72rem;color:var(--muted);line-height:1.7;font-style:italic">Data dan harga Gold yang dipaparkan di laman ini adalah berdasarkan harga rasmi terkini daripada Public Gold Malaysia di bawah GOLD Accumulation Program (24K). Harga adalah tertakluk kepada perubahan semasa tanpa notis.</p>
   </div>
   <footer>
-    publicgoldprice.com · Gold Price (RM/g) · Refreshes every 3 min · Updated: <span id="last-updated">—</span><br><br>Disclaimer: PublicGoldPrice.com merupakan website inisiatif dealer Public Gold dan bukan website rasmi Public Gold Marketing Sdn. Bhd.
+    publicgoldprice.com · Gold Price (RM/g) · Refreshes every 3 min · Updated: <span id="last-updated">—</span><br><br>Disclaimer: PublicGoldPrice.com is a website initiated by a Public Gold dealer and is not the official website of Public Gold Marketing Sdn. Bhd.
   </footer>
 </main>
 
@@ -661,7 +686,16 @@
 
       if (today && gi === 0) {
         html += `
-        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.75rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia GAP 24K</a> rates and are subject to change. Prices updated every 3 minutes and recorded daily.</p>`;
+        <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7;margin-bottom:1.25rem">All prices are based on <a href="https://publicgold.com.my/" target="_blank" rel="noopener" style="color:#e2b96f;text-decoration:none;border-bottom:1px solid rgba(226,185,111,0.4)">Public Gold Malaysia GAP 24K</a> rates and are subject to change. Prices updated every 3 minutes and recorded daily.</p>
+        <div class="cta-box" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border2);border-radius:12px;">
+          <div style="flex:1;min-width:200px">
+            <p style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:0.3rem">Not a Public Gold member yet? Start investing in Gold &amp; Silver from as low as RM100 a month!</p>
+            <p style="font-size:0.7rem;color:var(--muted2);letter-spacing:0.3px">Free Registration, 100% Shariah Compliant</p>
+          </div>
+          <a href="https://publicgold.com.my/index.php?route=account/register&is_dealer=1&intro_pgcode=PG00258585" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.85rem;letter-spacing:0.5px;padding:12px 24px;border-radius:10px;background:linear-gradient(135deg,#c8943a,#e2b96f,#c8943a);background-size:200% auto;color:#0a0a0f;box-shadow:0 4px 20px rgba(226,185,111,0.35);transition:all 0.3s" onmouseover="this.style.backgroundPosition='right center';this.style.boxShadow='0 6px 28px rgba(226,185,111,0.55)'" onmouseout="this.style.backgroundPosition='left center';this.style.boxShadow='0 4px 20px rgba(226,185,111,0.35)'">
+            Register For Free &nbsp;→
+          </a>
+        </div>`;
       }
 
       const pillClass = today ? 'today' : 'past';

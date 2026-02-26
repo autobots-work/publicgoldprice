@@ -706,6 +706,7 @@
     countdown = REFRESH_MS / 1000;
     try {
       render(await fetchData());
+    }
     catch(e) { console.error(e); document.getElementById('last-updated').textContent = 'Error — retrying…'; }
   }
 

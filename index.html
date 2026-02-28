@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17982179584"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17982179584');
+  </script>
+  <!-- Page view conversion -->
+  <script>
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17982179584/Sz_UCN-SrYAcEICSyf5C',
+      'value': 1.0,
+      'currency': 'MYR'
+    });
+  </script>
+  <!-- Conversion click function -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17982179584/Sz_UCN-SrYAcEICSyf5C',
+        'value': 1.0,
+        'currency': 'MYR',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Public Gold Price Today - 24 Hours Daily Price Tracker</title>
@@ -28,15 +61,6 @@
   <meta name="twitter:image" content="https://publicgoldprice.com/PublicGoldPrice-Meta-Image.jpg">
   <meta name="twitter:image:alt" content="Public Gold Price Today - 24 Hours Daily Price Tracker">
   <meta property="og:image:alt" content="Public Gold Price Today - 24 Hours Daily Price Tracker">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17982179584"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17982179584');
-</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Dataset","name":"Public Gold Price Today - 24 Hours Daily Price Tracker","description":"Live gold price data from Public Gold Malaysia GAP 24K program, updated every 3 minutes.","url":"https://publicgoldprice.com/","publisher":{"@type":"Organization","name":"PublicGoldPrice.com","url":"https://publicgoldprice.com"},"license":"https://creativecommons.org/licenses/by/4.0/","creator":{"@type":"Organization","name":"PublicGoldPrice.com","url":"https://publicgoldprice.com"},"inLanguage":"en"}
   </script>
@@ -214,7 +238,7 @@
         <p style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:0.3rem">Not a Public Gold member yet? Start investing in Gold &amp; Silver from as low as RM100 a month!</p>
         <p style="font-size:0.7rem;color:var(--muted2);letter-spacing:0.3px">Free Registration, 100% Shariah Compliant</p>
       </div>
-      <a href="https://publicgold.com.my/index.php?route=account/register&is_dealer=1&intro_pgcode=PG00258585" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.85rem;letter-spacing:0.5px;padding:12px 24px;border-radius:10px;background:linear-gradient(135deg,#c8943a,#e2b96f,#c8943a);background-size:200% auto;color:#0a0a0f;box-shadow:0 4px 20px rgba(226,185,111,0.35);transition:all 0.3s" onmouseover="this.style.backgroundPosition='right center';this.style.boxShadow='0 6px 28px rgba(226,185,111,0.55)'" onmouseout="this.style.backgroundPosition='left center';this.style.boxShadow='0 4px 20px rgba(226,185,111,0.35)'">
+      <a href="https://publicgold.com.my/index.php?route=account/register&is_dealer=1&intro_pgcode=PG00258585" onclick="return gtag_report_conversion('https://publicgold.com.my/index.php?route=account/register&is_dealer=1&intro_pgcode=PG00258585')" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.85rem;letter-spacing:0.5px;padding:12px 24px;border-radius:10px;background:linear-gradient(135deg,#c8943a,#e2b96f,#c8943a);background-size:200% auto;color:#0a0a0f;box-shadow:0 4px 20px rgba(226,185,111,0.35);transition:all 0.3s" onmouseover="this.style.backgroundPosition='right center';this.style.boxShadow='0 6px 28px rgba(226,185,111,0.55)'" onmouseout="this.style.backgroundPosition='left center';this.style.boxShadow='0 4px 20px rgba(226,185,111,0.35)'">
         Register For Free &nbsp;→
       </a>
     </div>

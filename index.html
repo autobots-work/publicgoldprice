@@ -266,8 +266,16 @@
   <div style="padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:1.5rem">
     <p style="font-size:0.72rem;color:var(--muted2);line-height:1.7">The Gold data and prices displayed on this website are based on the latest official prices from Public Gold Malaysia under the GOLD Accumulation Program (24K). Prices are subject to change without prior notice.</p>
   </div>
-  <footer>publicgoldprice.com · Gold Price (RM/g) · Refreshes every 3 min · Updated: <span id="last-updated">—</span><br><br>Disclaimer: PublicGoldPrice.com is a website initiated by a Public Gold dealer and is not the official website of Public Gold Marketing Sdn. Bhd.</footer>
-
+<footer style="text-align:center;padding:2rem 1.5rem;border-top:1px solid #2a2a3d;margin-top:1rem;">
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem;margin-bottom:0.85rem;">
+    <a href="/" style="font-family:'Outfit',sans-serif;font-size:0.72rem;color:#bcbcd4;text-decoration:none;">Gold Price Tracker</a>
+    <a href="/silver.html" style="font-family:'Outfit',sans-serif;font-size:0.72rem;color:#bcbcd4;text-decoration:none;">Silver Price Tracker</a>
+    <a href="https://publicgoldprice.com/en/blog/" style="font-family:'Outfit',sans-serif;font-size:0.72rem;color:#bcbcd4;text-decoration:none;">Blog</a>
+    <a href="https://publicgoldprice.com/privacy-policy.html" style="font-family:'Outfit',sans-serif;font-size:0.72rem;color:#bcbcd4;text-decoration:none;">Privacy Policy</a>
+    <a href="https://publicgoldprice.com/terms-of-service.html" style="font-family:'Outfit',sans-serif;font-size:0.72rem;color:#bcbcd4;text-decoration:none;">Terms of Service</a>
+  </div>
+  <div style="font-size:0.65rem;color:#6b6b8a;letter-spacing:1px;">© 2026 PublicGoldPrice.com · Price data for reference only</div>
+</footer>
   <!-- Floating share buttons -->
   <div class="share-float">
     <a class="share-btn wa" href="https://wa.me/?text=Check%20Public%20Gold%20price%20here%20-%2024%20Hours%20Price%20Tracker%20%F0%9F%91%89%20https://publicgoldprice.com/" target="_blank" rel="noopener" title="Share on WhatsApp">
@@ -281,6 +289,53 @@
       </svg>
     </a>
   </div>
+
+  <style>
+  .blog-section{margin:3rem 0 2rem;}
+  .blog-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;gap:1rem;flex-wrap:wrap;}
+  .blog-section-label{font-family:'Outfit',sans-serif;font-size:0.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#6b6b8a;}
+  .blog-view-all{font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:700;color:#e2b96f;text-decoration:none;white-space:nowrap;}
+  .blog-view-all:hover{opacity:0.8;}
+  .blog-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+  .blog-card{background:#13131c;border:1px solid #2a2a3d;border-radius:12px;padding:1.25rem;text-decoration:none;display:flex;flex-direction:column;gap:0.6rem;transition:all 0.2s;}
+  .blog-card:hover{border-color:rgba(226,185,111,0.35);transform:translateY(-2px);}
+  .blog-card-pillar{font-family:'Outfit',sans-serif;font-size:0.58rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:20px;border:1px solid;display:inline-block;width:fit-content;}
+  .blog-card-title{font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;color:#f0f2ff;line-height:1.35;}
+  .blog-card-desc{font-size:0.78rem;color:#bcbcd4;line-height:1.65;flex:1;}
+  .blog-card-read{font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:700;color:#e2b96f;}
+  @media(max-width:700px){
+    .blog-cards{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:0.85rem;padding-bottom:0.5rem;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;}
+    .blog-card{min-width:78vw;scroll-snap-align:start;flex-shrink:0;}
+  }
+</style>
+
+<div class="blog-section">
+  <div class="blog-section-header">
+    <div class="blog-section-label">FROM OUR BLOG</div>
+    <a href="https://publicgoldprice.com/en/blog/" class="blog-view-all">View All Articles →</a>
+  </div>
+  <div class="blog-cards">
+        <a href="/en/blog/what-is-public-gold-gap-24k.html" class="blog-card">
+          <div class="blog-card-pillar" style="background:#3dd68c22;color:#3dd68c;border-color:#3dd68c44">Beginner</div>
+          <div class="blog-card-title">What is Public Gold GAP 24K?</div>
+          <div class="blog-card-desc">Everything you need to know about Malaysia's top Shariah gold program.</div>
+          <div class="blog-card-read">Read →</div>
+        </a>
+        <a href="/en/blog/best-time-to-buy-gold.html" class="blog-card">
+          <div class="blog-card-pillar" style="background:#e2b96f22;color:#e2b96f;border-color:#e2b96f44">Strategy</div>
+          <div class="blog-card-title">When is the Best Time to Buy Gold?</div>
+          <div class="blog-card-desc">Proven strategies and how to use price records to invest smarter.</div>
+          <div class="blog-card-read">Read →</div>
+        </a>
+        <a href="/en/blog/is-public-gold-shariah-compliant.html" class="blog-card">
+          <div class="blog-card-pillar" style="background:#7c6af022;color:#7c6af0;border-color:#7c6af044">Shariah</div>
+          <div class="blog-card-title">Is Public Gold Shariah Compliant?</div>
+          <div class="blog-card-desc">The world's first gold company with official Shariah certification.</div>
+          <div class="blog-card-read">Read →</div>
+        </a>
+  </div>
+</div>
+  
 </main>
 
 <script>

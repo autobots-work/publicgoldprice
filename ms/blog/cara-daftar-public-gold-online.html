@@ -59,6 +59,9 @@
     .topbar-right{display:flex;align-items:center;gap:0.5rem;}
     .nav-tab{font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);color:var(--muted2);transition:all 0.2s;}
     .nav-tab:hover{color:var(--white);border-color:var(--border2);}
+    .topbar-nav{display:flex;align-items:center;gap:0.25rem;}
+    .nav-tab.inactive{color:var(--muted2);border-color:var(--border);}
+    .nav-tab.inactive:hover{color:var(--white);border-color:var(--border2);}
     .nav-tab.active{background:rgba(226,185,111,0.15);color:var(--accent);border-color:rgba(226,185,111,0.35);}
     .lang-switch{font-family:'Outfit',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:5px 10px;border-radius:20px;border:1px solid var(--border2);color:var(--muted2);transition:all 0.2s;}
     .lang-switch:hover{color:var(--white);border-color:var(--accent);}
@@ -131,8 +134,8 @@
 <div class="topbar">
   <a href="https://publicgoldprice.com/ms/" class="topbar-logo">Public<span>Gold</span>Price</a>
   <div class="topbar-right">
-    <a class="nav-tab" href="https://publicgoldprice.com/ms/">Emas</a>
-    <a class="nav-tab" href="/ms/silver.html">Perak</a>
+    <div class="topbar-nav"><a class="nav-tab inactive" href="https://publicgoldprice.com/ms/">Emas</a>
+    <a class="nav-tab inactive" href="/ms/silver.html">Perak</a></div>
     
     <a class="lang-switch" href="https://publicgoldprice.com/en/blog/cara-daftar-public-gold-online.html">EN</a>
   </div>
